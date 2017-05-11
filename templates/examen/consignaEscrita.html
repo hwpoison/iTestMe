@@ -1,0 +1,52 @@
+<center>
+	<form id="enviarRespuesta" method="POST">
+		<input type="text" id="respuestaEscrita" value="" autocomplete="off" name="respuestaEscrita" class="form-control animated rubberBand" placeholder="Escribir una respuesta.." style="width:250px">
+		<br><br>
+		<button type="button" id="botonEnviar" class="btn btn-success animated flipInX">Enviar Respuesta</button>
+		<input type="text" name="tipo" style="display:none" value="consigna">
+	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+</center>
+<script>
+	document.getElementById("respuestaEscrita").focus()
+	var consigna = "{{ consigna }}"
+	var respuestasAcertadas  = "{{ respuestasAcertadas }}"
+	var respuestasDesacertadas = "{{ respuestasDesacertadas }}"
+	var progresoActual = "{{ progresoActual }}"
+	var cantidadPreguntas = "{{ cantidadPreguntas }}"
+	var imagen = "{{ imagen }}"
+	function verificar(){
+		$.post(
+				"/examinar",
+				{
+					respuestaEscrita:$("#respuestaEscrita").val()
+				},
+				function(data){
+					recargar(data)
+				}
+			 )
+	}
+	
+	$("#botonEnviar").click(function(){
+		if($("#respuestaEscrita").val() == ""){
+			alert("Por favor rellena el campo!")
+		}else{
+			verificar()
+		}
+	});
+	
+	$("#respuestaEscrita").keypress(function(e){
+		if(((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) && $("#respuestaEscrita").val() != ""){
+			verificar()
+		}
+	})
+</script>
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+{% extends "masterTemplate.html" %}
+{% block general %}
+<center>
+	<div class="progress">
+		  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="70"
+		  aria-valuemin="0" aria-valuemax="100">
+			
+		  </div>
+	</div>
+<h1 class="consigna"></h1>
+<p class="animated fadeInRight" style="color:#CBC4C4">_____________________________</p>
+<img style="display:none" id="imagenDescripcion" class="elementoZoom">
+<br>
+<br>
+</center>
+<div id="examen_rec"></div>
+<center>
+	<div class="pieEstado">
+		<span style="color:green" class="respuestasAcertadas"></span> 
+		<span style="color:red" class="respuestasDesacertadas"></span>
+	</div>
+</center>
+
+<script>
+		function recargar(htl){
+			$("#imagenDescripcion").hide()
+			$("#examen_rec").html(htl);
+		}
+		function obtenerConsigna(){
+			$("#imagenDescripcion").hide()
+			$.get(
+				"/examinar", 
+				function(data){
+					//actualizacion interfaz
+					$("#examen_rec").html(data)
+					$(".consigna").removeClass().addClass("consigna animated fadeInLeft").text(consigna)
+					$(".respuestasAcertadas").text("Bien:" + respuestasAcertadas)
+					$(".respuestasDesacertadas").text("Mal:" + respuestasDesacertadas)
+					var porcentaje = (eval(progresoActual) * 100)/cantidadPreguntas
+					var oculto = 0
+					$(".progress-bar").css("width",porcentaje+"%");
+					$(".progress-bar").text(progresoActual + "/" + cantidadPreguntas)
+					$(document).ready(function(){
+						if(imagen != "noimagen"){
+							$("#imagenDescripcion").attr("src",imagen).show()
+						}
+					})
+				}
+			)
+		};
+		$(".pieEstado").attr("unselectable", "on")
+		
+//Iniciar la primera peticion
+$(document).ready(function(){
+	obtenerConsigna();	
+});
+
+</script>
+
+{%endblock%}

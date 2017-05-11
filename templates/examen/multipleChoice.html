@@ -1,0 +1,52 @@
+<center>
+	{% for opcion in opcionesChoice %}
+	  
+			<button type="button" id="botonOpcion_{{loop.index}}" class="botonOpcionChoice btn btn-primary animated bounceInRight">{{ opcion }}</button><br class="espacioBoton"><br class="espacioBoton">
+		
+	{% endfor %}
+			<p id="tituloAclaracion" style="visibility:hidden"></p>
+	<p id="respuestaAclaracion" style="font-size:25px;visibility:hidden">{{aclaracion}}</p>
+	<br>
+	<br>
+	<br>
+	<br>
+</center>
+<script>
+
+  var algunaSeleccionada = false
+  var consigna = "{{consigna}}"
+  var respuestasAcertadas = "{{ respuestasAcertadas }}"
+  var respuestasDesacertadas = "{{ respuestasDesacertadas}}"
+  var progresoActual = "{{progresoActual}}"
+  var cantidadPreguntas = "{{ cantidadPreguntas }}"
+  var cantidadOpciones = "{{ cantidadOpciones }}"
+  var respuesta = 0
+  var imagen = "{{ imagen }}"
+
+  function sacar(opc){//animacion quitar boton
+	  if(rot){
+		$(opc).removeClass().addClass('botonOpcion btn btn-default  animated bounceOutLeft').hide()
+		$(".espacioBoton").hide()
+		rot = false
+	  }else{
+		$(".espacioBoton").hide()
+		$(opc).removeClass().addClass('botonOpcion btn btn-default  animated bounceOutRight').hide()
+
+	  }
+  };
+  
+  $(".botonOpcionChoice").click(function(){
+		  var id = $(this).attr('id');
+		  $.post(
+				"/examinar",
+				{
+					respuestaEscrita:$("#"+id).text()
+				},
+				function(data){
+					recargar(data)
+				}
+			)
+  })
+  
+</script>
+

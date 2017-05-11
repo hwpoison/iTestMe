@@ -1,0 +1,42 @@
+<center>
+	<button type="button" id="botonCorrecta" class="botonOpcionChoice btn btn-primary animated bounceInRight"></button><br class="espacioBoton"><br class="espacioBoton">
+	<p id="tituloAclaracion" style="visibility:hidden"></p>
+	<p id="respuestaAclaracion" style="font-size:25px;visibility:hidden"></p>
+	<br>
+	<br>
+	<br>
+	<br>
+</center>
+<script>
+  var consigna = "{{consigna}}"
+  var aclaracion = "{{aclaracion}}"
+  var respuestasAcertadas = "{{ respuestasAcertadas }}"
+  var respuestasDesacertadas = "{{ respuestasDesacertadas}}"
+  var progresoActual = "{{progresoActual}}"
+  var cantidadPreguntas = "{{ cantidadPreguntas }}"
+  var respuestaDada = "{{ respuestaDada }}"
+  var valida = "{{ valida }}"
+  if(valida != "respuestaInvalida"){
+	   $("#botonCorrecta").removeClass().addClass('botonOpcion btn btn-success animated bounceIn').text(respuestaDada)
+	   $("#tituloAclaracion").text("Muy bien!");
+	   $("#tituloAclaracion").css("visibility","visible").addClass("animated pulse")
+	   $("#respuestaAclaracion").text(aclaracion)
+	   $("#respuestaAclaracion").css("visibility","visible").addClass("animated bounceInLeft")
+	   $("#tituloAclaracion").attr("id","tituloAclaracionBueno");
+	   $("#imagenDescripcion").hide()
+  }else{
+	  
+	   $("#botonCorrecta").removeClass().addClass('botonOpcion btn btn-danger animated bounceIn').text(respuestaDada)
+	   $("#tituloAclaracion").text("Incorrecto!");
+	   $("#tituloAclaracion").css("visibility","visible").addClass("animated shake")
+	   $("#tituloAclaracion").attr("id","tituloAclaracionMalo");
+	   $("#imagenDescripcion").hide()
+  }
+		 
+  //3 segundos de espera para pasar a la siguiente pregunta
+  setTimeout(function(){
+	obtenerConsigna()
+  }, 5000);		
+
+</script>
+

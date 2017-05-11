@@ -1,0 +1,15 @@
+{% extends "masterTemplate.html" %}
+{% block general %}
+<center>
+<br>
+<br>
+<br>
+<style>
+		body {
+			background-image: url("{{ url_for('static',filename='imagenes/404error.jpg') }}");
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
+</style>
+</center>
+{% endblock %}

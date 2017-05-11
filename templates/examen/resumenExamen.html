@@ -1,0 +1,33 @@
+<center>
+	<label>Calificación:</label>
+	<p id="calificacionFinal"></p>
+	<p id="analisisEvaluacion"></p>
+	<br>
+	<button type="button" onclick="location.href='/'" id="botonEnviar" class="btn btn-success animated bounceInDown">Ir a inicio</button>
+	<button type="button" onclick="location.href='/examen'" id="botonEnviar" class="btn btn-success animated bounceInDown">Hacer de nuevo</button>
+	<br>
+	<br>
+	<br>
+</center>
+<script>
+	var consigna = "EVALUACION FINAL"
+	var calificacion = "{{ evaluacion }}"
+	var acertadas = "{{ respuestasAcertadas }}"
+	var desacertadas = "{{ respuestasDesacertadas }}"
+	var progresoActual = "{{ progresoActual }}"
+	var cantidadPreguntas = "{{ cantidadPreguntas }}"
+	function setText(elementID, text){
+		$(elementID).text(text)
+	}
+	msj = {
+		"A":["Perfecto!", "Respondiste bien a todas las consignas!", "#00C604"],
+		"B":["Suficiente.", "Mas acertadas que invalidas, suficiente!.", "#19C81E"],
+		"C":["Regular","Vas a tener que mejorar un poco para superar eso.","#B3DF00"],
+		"F":["Desaprobado", "Muuy mal con " + desacertadas + " mal respondidas y apenas " + acertadas + " bien.", "#DF1500"],
+		"D":["PESIMO", "No pegaste ninguna!", "#E70000"]
+	}
+	
+	$("#calificacionFinal").text(msj[calificacion][0]).css("color",msj[calificacion][2])
+	$("#analisisEvaluacion").text(msj[calificacion][1])
+	$("#imagenDescripcion").css("display", "none")
+</script>

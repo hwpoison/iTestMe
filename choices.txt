@@ -1,0 +1,112 @@
+¿Según la OMS, que es la salud?
+choice
+facil
+La salud es la condición de todo ser vivo que goza de un absoluto bienestar.//La salud es la condicion de malestar de todo ser vivo.//La salud es la capacidad de respirar de un ser vivo.
+La salud es la condición de todo ser vivo que goza de un absoluto bienestar tanto a nivel fisico como social.
+medicina, enfermeria
+=
+Si una persona tiene fiebre, ¿Que se recomienda?
+choice
+facil
+Necesita Reposo//Necesita caminar//Necesita tomar jugo
+El reposo disminuye el metabolismo y por lo tanto el calor que produce el organismo se disminuye.
+medicina, enfermeria
+http://static4.embarazo10.com/wp-content/uploads/tener-fiebre-durante-el-embarazo-600x400.jpeg
+=
+¿Que es la OMS?
+choice
+facil
+Organizacion Mundial de la Salud//Es un club de futbol//Organizacion Mundial de Satelites
+La Organización Mundial de la Salud es una institucion muy importante la cual es integrada por varios paises
+medicina, enfermeria
+http://industria-farmaceutica.com/images/organizacionmundialdelasalud_logo.png
+=
+Diciplina especializada para atender emergencias
+choice
+facil
+Emergentología.//Urgentología.//Emergentes.
+La Emergentología es vital para el trato de situaciones criticas en los hospitales.
+medicina, enfermeria
+=
+El individuo tiene derecho a la salud pero tambien...
+choice
+facil
+Tiene obligaciónes a la misma//Tiene derecho a no cuidarse//Tiene solo derecho
+El individuo tiene la obligación de asistir a su salud.
+medicina, enfermeria
+=
+¿Que es una Urgencia?
+choice
+facil
+Patología lenta y no necesariamente mortal//Patalogía rapida y necesaria de inminente acción//Patología sin peligros
+La definicion según la OMS es aquella patología cuya evolucion es lenta y no necesariamente mortal
+medicina, enfermeria
+=
+Temperatura corporal
+choice
+facil
+Resultante de un equilibrio entre la producción de calor y su eliminación//Resultado de un día de calor//Calor producido por una fiebre
+La Temperatura corporal es constante en el ser humano.
+medicina, enfermeria
+https://www.eprodics.com/img/cms/part2.png
+=
+¿Que ambiente se recomienda a una persona en estado FEBRIL?
+choice
+facil
+Un lugar tranquilo y fresco//Un lugar humedo y frío//Un lugar cerrado
+Un lugar tranquilo y fresco para aumentar la eliminación del calor y contribuir al descanso.
+medicina, enfermeria
+=
+¿Como se llama el estado del paciente con mas de 39°C de fiebre?
+choice
+facil
+Hipertermia o hiperpirexia//Hipotermia//Hiperfebril
+Cuando la temperatura corporal sobrepasa los 39° el paciente corre peligro, y si sobrepasa los 41-42° podría conducirle a la muerte.
+medicina, enfermeria
+=
+¿Que es la respíración?
+choice
+facil
+La función que tiene como finalidad proporcionar de O2 al organismo//La actividad de tomar y largar aire//Expirar aire
+El proceso de respiración se encarga de absorber la cantidad necesaria de O2 para las celulas y eliminar el CO2 que resulta de la combustión celular
+medicina, enfermeria
+http://3.bp.blogspot.com/-_0d_5Yjs7oE/UpTc1UVBLXI/AAAAAAAAHtM/SfHJ-RhC7wk/s1600/respirar.png
+=
+Caracteristicas de la respiración
+choice
+facil
+Frecuencia, amplitud y ritmo//Frecuencia, amplitud y onda//Amplitud, onda y salud
+La frecuencia es la cantidad de respiraciones por minuto, la amplitud por la distension de la caja toraxica y el ritmo es la relacion entre aspiracion y expiración.
+medicina, enfermeria
+http://www.definicionabc.com/wp-content/uploads/respiracion.gif
+=
+Coloración azulada de piel, mucosa (labios, orejas) por falta de Oxigeno en la sangre arterial
+choice
+facil
+Cianosis//Hipnosis//Sipnosis
+Al faltar oxigeno en la sangre esta se puede notar por fuera un tanto azulada.
+medicina, enfermeria
+http://mundoasistencial.com/mundoasistencial/wp-content/uploads/2017/02/sintomas-cianosis.jpg
+=
+¿Como se le llama a este proceso?
+choice
+facil
+Respiración//Ciclo exhalico//Absorción
+El proceso de respiración es el proceso por el cual tomamos oxigeno(Inhalación) para ventilar a las celulas y largamos el aire usado(Exhalación).
+medicina, enfermeria
+http://www.soyrunnerteam.com/wp-content/uploads/2015/07/respiracion-diafragm%C3%A1tica.jpg
+=FIN=
+
+
+
+
+
+
+
+
+
+
+
+
+
+

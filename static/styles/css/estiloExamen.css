@@ -1,0 +1,68 @@
+/* Boton Opcion Multiplechoice */
+
+.botonOpcionChoice { 
+	font-size:20px;
+	position:static;
+}
+#tituloAclaracionBueno {
+	font-size:30px;
+	color:green;
+}
+#tituloAclaracionMalo {
+	font-size:30px;
+	color:red;
+}
+#textoAclaracion {
+	font-size:20px;
+}
+#tituloBueno {
+	font-size:30px;
+	color:green;
+}
+#tituloMalo {
+	font-size:30px;
+	color:red;
+}
+#imagenManoMg {
+	width:150px
+}
+#cajaresumenFinal label {
+	font-size:28px
+}
+#calificacionFinal {
+	font-size:40px;
+	font-family:Verdana
+}
+#analisisEvaluacion {
+	font-size:20px;
+	font-family:Cambria
+}
+#imagenDescripcion{
+	position:relative;
+	z-index:1;
+	width:195px;
+	box-shadow: 2px 2px 5px #999;
+}
+
+/* Efecto de zoom al presionar sobre el elemento (No es mío)*/
+.elementoZoom{
+	transition: 0.3s ease;
+	-moz-transition: 0.3s ease; /* Firefox */
+	-webkit-transition: 0.3s ease; /* Chrome - Safari */
+	-o-transition: 0.3s ease; /* Opera */
+}
+.elementoZoom:active {
+	transform : scale(2.8);
+	-moz-transform : scale(2.8); /* Firefox */
+	-webkit-transform : scale(2.8); /* Chrome - Safari */
+	-o-transform : scale(2.8); /* Opera */
+	-ms-transform : scale(2.8); /* IE9 */
+}
+/*Pie de respuestas acertadas o invalidas */
+.pieEstado {
+	position:fixed;
+	bottom:0px;
+	font-size:20px;
+	width:100%;
+	text-align:center;
+}

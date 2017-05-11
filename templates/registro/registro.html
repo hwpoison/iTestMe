@@ -1,0 +1,100 @@
+{% extends "registro/layer_registro.html" %}
+{% block content %}
+	<style>
+		.campo {
+			width:250px;
+		}
+		img {
+			width:200px;
+		}
+		body {
+			background-image: url("{{ url_for('static',filename='imagenes/fondos/fondologin1.jpg') }}");
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
+		
+		label {
+			color:white
+		}
+	</style>
+	<center>
+		<br>
+		<br>
+		<h1 id="texto" style="color:#E9E4E4" class="animated fadeInDown">Registrarse en <span style="font-family:Corsiva;color:#161616"</span>i</span>TestMe</h1>
+		<br>
+		<form method="POST" action="/registro" id="registrar">
+			<div class="form-group" >
+				<label for="usuario" class="animated fadeInRight">Nombre:</label>
+					<input type="text" name="usuario" id="usuario" placeholder="Nombre completo" value="" class="campo form-control  animated fadeInRight">
+				<label for="nick" class="animated fadeInRight">Nick:</label>
+					<input type="text" name="nick" id="nick" value=""  placeholder="Nick" class="campo form-control  animated fadeInRight">
+				<label for="password" class="animated fadeInLeft">Contraseña:</label>
+					<input type="password" name="password" id="password" value="" placeholder="Contraseña" class="campo form-control  animated fadeInLeft">
+				
+				<label for="cpassword" class="animated fadeInLeft">Confirmar Contraseña:</label>
+					<input type="password" name="cpassword" id="cpassword" value="" placeholder="Confirmar contraseña" class="campo form-control  animated fadeInLeft">
+				
+				<br>
+				<input type="button" id="botonLogear" class="btn btn-info animated slideInUp" value="Registrarse">
+				<br>
+				<br>
+				<a href="/">Volver</a>
+				<br>
+				<br>
+				<p style="color:red;visibility:hidden" id="advertencia"></p>
+		</form>
+		</div>
+	</center>
+	<script>
+		var advertencia = "{{advertencia}}"
+		function advertir(msg){
+			$("#advertencia").text(msg)
+			$("#advertencia").css("visibility","visible").removeClass().addClass("animated pulse")
+		}
+		function verificarRegistro(){
+			var pass = $("#password").val()
+			var cpass = $("#cpassword").val()
+			var nick = $("#nick").val()
+			var usuario = $("#usuario").val()
+			if( usuario == "" || pass == "" || cpass == "" || nick == ""){
+				advertir("*Por favor rellena todos los campos.")
+				return false
+			}else if(pass != cpass){
+				advertir("Las contraseñas no coinciden!")
+			}else{
+			    $.post("/registro",
+					{
+						usuario:usuario,
+						nick:nick,
+						password:pass
+					},
+					function(data){
+						var status = JSON.parse(data).status
+						if(status != "registrado_correctamente"){
+							advertir(status)
+						}else{
+							location.href = "/"
+						}
+					 }
+					);
+			}
+		}
+		
+		$(document).ready(function(){
+			document.getElementById("usuario").focus()
+			if(advertencia != ""){
+				$("#advertencia").text(advertencia);
+				$("#advertencia").css("visibility", "visible")
+			}
+			$("#password").keypress(function(e){
+				if(((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13))){
+					verificarRegistro()
+				}
+			})
+			$("#botonLogear").click(function(){
+				verificarRegistro()
+			});
+			
+		});
+	</script>
+{% endblock %}

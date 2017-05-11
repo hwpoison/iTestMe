@@ -1,0 +1,37 @@
+{% extends "home/layer_home.html" %}
+{% block content %}
+	<center>
+		<center><h3 id="tituloPrincipalInicio" class="animated bounceInDown">Hola</h3></center>
+	   <br>
+	   <br>
+	   <br>
+		<ul id="menuInicio">
+		   <li><button type="button" onclick="location.href='/examen'" 
+		   class="btn btn-success animated bounceInDown">{{ estadoExamen }}</button></li>
+		   <br>
+		   <li><button type="button" onclick="location.href='/estadisticas'"
+		    class="btn btn-success animated bounceInDown">Ver Estadisticas</button></li>
+		    <br>
+		   <li><button type="button" onclick="location.href='/deslogear'" 
+		   class="btn btn-success animated bounceInDown">Salir</button></li>
+		</ul>
+		<br>
+		<br>
+		<br>
+		<a href="https://github.com/sRBill90/iTestMe">Github</a>
+	</center>
+	
+	<script>
+		$(document).ready(function(){
+			var nombreUsuario = "{{ usuario }}"
+			var mensajesBienvenida = [
+				"Hola", "Bienvenido", "Un gusto verte por aquí", "Hello",
+				"Muy buenas", "Buenas"
+			];
+			var num = Math.floor(Math.random() * mensajesBienvenida.length)
+			mensajeAleatorio = mensajesBienvenida[num]
+			$("#tituloPrincipalInicio").text(mensajeAleatorio + " " + nombreUsuario + "!")
+		});
+	</script>
+{% endblock %}
+

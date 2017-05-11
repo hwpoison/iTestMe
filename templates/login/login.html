@@ -1,0 +1,97 @@
+{% extends "login/layer_login.html" %}
+{% block content %}
+	<style>
+		.campo {
+			width:250px;
+		}
+		img {
+			width:200px;
+		}
+		body {
+			background-image: url("{{ url_for('static',filename='imagenes/fondos/fondologin1.jpg') }}");
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
+		
+		label {
+			color:white
+		}
+	</style>
+	<center>
+		<br>
+		<br>
+		<h1 id="texto" style="color:#E9E4E4" class="animated fadeInDown">Entrar a <span style="font-family:Corsiva;color:#161616"</span>i</span>TestMe</h1>
+		<br>
+		<form method="POST" id="logear">
+			<div class="form-group" >
+				<label for="usuario" class="animated fadeInRight">Nombre:</label>
+				<input type="text" name="usuario" id="usuario" value="" class="campo form-control  animated fadeInRight">
+				<br>
+				<label for="password" class="animated fadeInLeft">Contraseña:</label>
+				<input type="password" name="password" id="password" value="" class="campo form-control  animated fadeInLeft">
+				<br>
+				<input type="button" id="botonLogear" class="btn btn-info animated slideInUp" value="Entrar">
+				<br>
+				<br>
+				<a href="/registro">Crear una cuenta</a>
+				<br>
+				<br>
+				<p style="color:red;visibility:hidden" id="advertencia"></p>
+		</form>
+		</div>
+		<br>
+		<br>
+		<br>
+		<a href="https://github.com/sRBill90/iTestMe" style="color:white">En Github</a>
+	</center>
+	<script>
+		var advertencia = "{{advertencia}}"
+		function advertir(msg){
+			$("#advertencia").text(msg)
+			$("#advertencia").css("visibility","visible").removeClass().addClass("animated pulse")
+		}
+		function camposCompletos(){
+			if( ($("#usuario").val() && $("#password").val()) != ""){
+				return true
+			}else{
+				advertir("*Por favor rellena todos los campos")
+				return false
+			}
+		}
+		function verificarLogin(){
+			var usuario = $("#usuario").val()
+			var password = $("#password").val()
+			$.post( "/login",
+					{
+						usuario:usuario,
+						password:password
+					}, 
+					function(data){
+						var status = JSON.parse(data).status
+						if(status != "OK"){
+							advertir("Usuario o contraseña incorrecta!")
+						}else{
+							location.href = "/"
+						}
+					}
+		)}
+		
+		$(document).ready(function(){
+			document.getElementById("usuario").focus()
+			if(advertencia != ""){
+				advertir(advertencia)
+			}
+			$("#password").keypress(function(e){
+				if(((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) && camposCompletos()){
+					verificarLogin()
+				}
+			})
+			$("#botonLogear").click(function(){
+				if(camposCompletos()){
+					verificarLogin()
+				}
+			});
+			
+		});
+	</script>
+{% endblock %}
