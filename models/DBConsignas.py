@@ -20,7 +20,7 @@ for dbs in dbs_index:#Crear dbs
 				index+=1
 class Consignas():
 	def __init__(self):
-		self.db = sqlite3.connect("dbPreguntas.db")
+		#self.db = sqlite3.connect("dbPreguntas.db")
 		self.db = sqlite3.connect(":memory:")
 		self.iniciar()
 		self.registrarDeTxt()
